@@ -315,6 +315,18 @@ message.channel.sendEmbed(embed)
 }
 });
 
+client.on('message',async msg => {
+  var p = "$";
+  if(msg.content.startsWith(p + "user")) {
+  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply(':x: go play minecraft');
+  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply(':x: البوت لا يمتلك صلاحية');
+  msg.guild.createChannel(Members : ◤ → ${client.users.size} ← ◢ , 'voice').then(time => {
+    });
+
+  }
+ 
+});
+
 client.on('ready', () => {
    console.log(`----------------`);
       console.log(`Cyhper Script By : DREAM`);
