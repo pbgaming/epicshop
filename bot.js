@@ -275,59 +275,6 @@ client.on("guildMemberAdd", member => {
 }).catch(console.error)
 })
 
-client.on('message', message => {
-     if (message.content === "g!bot") {////////////////By:Mal,Team
-     let embed = new Discord.RichEmbed()
-  .setColor("RANDOM")////////////////By:Mal,,Team
-  .addField("Servers:" , client.guilds.size)
-  .addField("Users:", client.users.size)////////////////By:Mal,Team
-  .addField("channels:", client.channels.size)
-  .setTimestamp()
-message.channel.sendEmbed(embed);
-    }
-});
-
-var antispam = require("anti-spam");//npm i anti-spam
- 
-antispam(client, {
-  warnBuffer: 3, //الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على تحذير.
-  maxBuffer: 5, // الحد الأقصى المسموح به من الرسائل لإرسالها في الفاصل الزمني قبل الحصول على ميوت.
-  interval: 1000, // مقدار الوقت قبل حصول باند
-  warningMessage: "stop spamming.", // رسالة تحذير اذا سوا سبام!
-  roleMessage: "Muted!!", // الرسالة الي تجي اذا شخص اخذ ميوت
-  roleName: "Muted", // اسم رتبة الميوت
-  maxDuplicatesWarning: 7, // عدد الرسايل الي قبل التحذيرات
-  maxDuplicatesBan: 10, // عدد الرسايل الي يقدر المستخدم يرسلها قبل الميوت
-  time: 10, // عدد الوقت الي يجلس لين تسحب رتبة الميوت من الشخص الحسبة برمجية وليست كتابية 
-});
-
-client.on('message', message => {
-var prefix = "$";
-  if(message.author.bot) return;
-if (message.content.startsWith(prefix + 'points')) {
-if(!message.channel.guild) return message.reply('**هذا الأمر للسيرفرات فقط**').then(m => m.delete(3000));
-let userData = points[message.author.id];
-let embed = new Discord.RichEmbed()
-.setAuthor(`${message.author.tag}`, message.author.avatarURL)
-.setColor('#000000')
-.setDescription(`نقاطك: \`${userData.points}\``)
-message.channel.sendEmbed(embed)
-}
-});
-
-client.on('message',async msg => {
-  var p = "!";
-  if(msg.content.startsWith(p + "user")) {
-  if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
-  if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
-  msg.guild.createChannel(`Members : ◤ → ${client.users.size} ← ◢` , 'voice').then(time => {
-    });
-
-  }
- 
-});
-
-
 client.on('ready', () => {
    console.log(`----------------`);
       console.log(`Cyhper Script By : DREAM`);
