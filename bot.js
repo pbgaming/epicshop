@@ -287,6 +287,41 @@ client.on('message',async msg => {//Toxic Codes
  
 });
 
+client.on("message", async message => {
+        if(!message.channel.guild) return;
+ var prefix= "!";
+        if(message.content.startsWith(prefix + 'server')) {
+        let guild = message.guild
+        let channel = message.channel
+        let guildicon = guild.icon_url
+        let members = guild.memberCount
+        let bots = guild.members.filter(m => m.user.bot).size
+        let humans = members - bots
+        let allchannels = guild.channels.size
+        let textchannels = guild.channels.filter(e => e.type === "text")
+        let voicechannels = guild.channels.filter(e => e.type === "voice")
+          var embed = new Discord.RichEmbed()
+          .setColor("#000000")
+          .setTitle(`معلومات عن السيرفر`)
+          .setDescription(`معلومات عن : ${guild.name}`)
+          .addField(":crown: صاحب السيرفر :", `${guild.owner}`, true)
+          .addField(":id: أيدي السيرفر :", `${guild.id}`, true)
+          .addField(":earth_africa: موقع السيرفر :", `${guild.region}`, true)
+          .addField(":earth_africa:مستوى حماية السيرفر :", `${guild.verificationLevel}`, true)
+          .addField(":speech_balloon: عدد الرومات الصوتية :", `${voicechannels.size}`, true)
+          .addField(":speech_balloon: عدد الرومات الكتابية :", `${textchannels.size}`, true)
+          .addField(":busts_in_silhouette: عدد اعضاء السيرفر :", `${members}`, true)
+          .addField(":robot: عدد البوتات :", `${bots}`, true)
+          .addField(":busts_in_silhouette: عدد الاشخاص :", `${humans}`, true)
+          .addField(":closed_lock_with_key: عدد رتب السيرفر :", `${guild.roles.size}`, true)
+          .addField(`أيموجيات الخاصة بالسيرفر : (${guild.emojis.size})`, `- ${guild.emojis.array()}`, true)
+          .setFooter(`تم انشاء هذه السيرفر في: ${guild.createdAt}`)
+ 
+       message.channel.send({ embed: embed });
+ 
+      }
+    });
+
 client.on('ready', () => {
    console.log(`----------------`);
       console.log(`Cyhper Script By : DREAM`);
