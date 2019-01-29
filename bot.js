@@ -297,14 +297,16 @@ client.on('guildMemberAdd', member => {
   });
 });
 
-client.on("message", message => {
-    if (message.content === "$help") {
-     const embed = new Discord.RichEmbed() 
-         .setColor("RANDOM")
-         .setThumbnail(message.author.avatarURL)
-         .setDescription(`
-         __** قائمة مساعدات البوت **__
-**
+client.on('message', message => {
+    let prefix = '$'
+    
+    if(message.author.bot) return;
+    if(message.content == prefix + 'help'){
+        let Hembed = new Discord.RichEmbed()
+     .setAuthor('BOT')    
+     .setColor("GRAY")
+     .setDescription(`
+     **Server Help List**
 broadcast =$all
 clear chat =$clear
 server info =$server
@@ -314,12 +316,13 @@ close ticket =$closetk - $close
 hide room =$hide
 show room =$show
 say =$say
-**
-         `)
-   message.author.sendEmbed(embed)
-   
-   }
-   });
+`
+);
+    message.author.sendEmbed(Hembed);
+    message.channel.send('**تم الارسال في الخاص**');
+
+}
+});
 
 client.on('ready', () => {
    console.log(`----------------`);
