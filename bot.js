@@ -297,6 +297,30 @@ client.on('guildMemberAdd', member => {
   });
 });
 
+client.on("message", message => {
+    if (message.content === "!help") {
+     const embed = new Discord.RichEmbed() 
+         .setColor("RANDOM")
+         .setThumbnail(message.author.avatarURL)
+         .setDescription(`
+         __** قائمة مساعدات البوت **__
+**
+broadcast =$all
+clear chat =$clear
+server info =$server
+close room =$close
+open room =$open
+close ticket =$closetk - $close
+hide room =$hide
+show room =$show
+say =$say
+**
+         `)
+   message.author.sendEmbed(embed)
+   
+   }
+   });
+
 client.on('ready', () => {
    console.log(`----------------`);
       console.log(`Cyhper Script By : DREAM`);
