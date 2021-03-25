@@ -327,4 +327,4 @@ client.user.setStatus("dnd")
 });
 
 
-client.login(ODI0NzY1OTMwNDQ1ODY0OTkw.YF0JIQ.jFiCMOmLWDC-sIVRSvVXmzPiVqY);// لا تغير فيها شيء
+client.login(NTI1MDQ4NjE2NDk5NDEzMDAz.XBqroQ.idPaWOqV84q1lf0yZ0DuputO6LI);// لا تغير فيها شيء
